@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/fernando-santana-advogados/static/css/main.3510f06c.css",
+    "main.js": "/fernando-santana-advogados/static/js/main.1779a175.js",
+    "static/media/bg1.jpg": "/fernando-santana-advogados/static/media/bg1.c2c833aca70cce2f9989.jpg",
+    "index.html": "/fernando-santana-advogados/index.html",
+    "main.3510f06c.css.map": "/fernando-santana-advogados/static/css/main.3510f06c.css.map",
+    "main.1779a175.js.map": "/fernando-santana-advogados/static/js/main.1779a175.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3510f06c.css",
+    "static/js/main.1779a175.js"
+  ]
+}
