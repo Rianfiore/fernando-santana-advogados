@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.css": "/fernando-santana-advogados/static/css/main.3510f06c.css",
-    "main.js": "/fernando-santana-advogados/static/js/main.1779a175.js",
+    "main.css": "/fernando-santana-advogados/static/css/main.d2feea9e.css",
+    "main.js": "/fernando-santana-advogados/static/js/main.bbc30735.js",
+    "static/media/mask.png": "/fernando-santana-advogados/static/media/mask.f11dd68e6df088d59fe8.png",
     "static/media/bg1.jpg": "/fernando-santana-advogados/static/media/bg1.c2c833aca70cce2f9989.jpg",
+    "static/media/libra.svg": "/fernando-santana-advogados/static/media/libra.b17e0e76d3b0d2bc4360baef8d21b0b0.svg",
     "index.html": "/fernando-santana-advogados/index.html",
-    "main.3510f06c.css.map": "/fernando-santana-advogados/static/css/main.3510f06c.css.map",
-    "main.1779a175.js.map": "/fernando-santana-advogados/static/js/main.1779a175.js.map"
+    "static/media/prism.svg": "/fernando-santana-advogados/static/media/prism.cae427223060acb4c81791fbfa3dd679.svg",
+    "main.d2feea9e.css.map": "/fernando-santana-advogados/static/css/main.d2feea9e.css.map",
+    "main.bbc30735.js.map": "/fernando-santana-advogados/static/js/main.bbc30735.js.map"
   },
   "entrypoints": [
-    "static/css/main.3510f06c.css",
-    "static/js/main.1779a175.js"
+    "static/css/main.d2feea9e.css",
+    "static/js/main.bbc30735.js"
   ]
 }
