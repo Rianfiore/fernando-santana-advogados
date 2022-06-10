@@ -13,10 +13,13 @@ import {
   RiBankFill,
   HiCurrencyDollar,
   MdRealEstateAgent,
+  GiPistolGun,
+  RiShieldUserFill,
 } from "../../img";
 import { Button } from "../../components/button";
 import { Card } from "../../components/card";
-import { useState } from "react";
+import { Carousel } from "../../components/carousel";
+import { Icon } from "../../components/icon";
 
 const data = [
   {
@@ -107,13 +110,27 @@ const data = [
       "Mauris dictum dictum pulvinar. Etiam non rutrum ligula, sit amet porttitor massa. Nullam nec erat eu ex tincidunt fermentum. Etiam quis nunc eget quam mollis rhoncus. Pellentesque eu tristique massa. Ut eget elementum mi, ut tristique metus. Suspendisse auctor blandit molestie.",
     buttonContent: "Saiba mais",
   },
+  {
+    color: "secondary",
+    icon: <GiPistolGun size="5vw" color="#fbce33" />,
+    title: "Direito Criminal",
+    subtitle:
+      "Mauris dictum dictum pulvinar. Etiam non rutrum ligula, sit amet porttitor massa. Nullam nec erat eu ex tincidunt fermentum. Etiam quis nunc eget quam mollis rhoncus. Pellentesque eu tristique massa. Ut eget elementum mi, ut tristique metus. Suspendisse auctor blandit molestie.",
+    buttonContent: "Saiba mais",
+  },
+  {
+    color: "primary",
+    icon: <RiShieldUserFill size="5vw" color="#fbce33" />,
+    title: "Defesa do Consumidor",
+    subtitle:
+      "Mauris dictum dictum pulvinar. Etiam non rutrum ligula, sit amet porttitor massa. Nullam nec erat eu ex tincidunt fermentum. Etiam quis nunc eget quam mollis rhoncus. Pellentesque eu tristique massa. Ut eget elementum mi, ut tristique metus. Suspendisse auctor blandit molestie.",
+    buttonContent: "Saiba mais",
+  },
 ];
 
 export const Main = () => {
-  const [animationState, setAnimationState] = useState(false);
-
   return (
-    <S.Container hoverAnimation={animationState}>
+    <S.Container>
       <main>
         <section className="banner">
           <div className="background"></div>
@@ -139,46 +156,56 @@ export const Main = () => {
               elementum nulla id metus maximus, vitae convallis sapien rhoncus.
             </p>
           </div>
-          <Button content="Entrar em contato" />
+          <Button typeButton="text" content="Entrar em contato" />
         </section>
         <section className="specialties">
-          <div
-            className="viewport"
-            onMouseEnter={() => setAnimationState(true)}
-            onMouseLeave={() => setAnimationState(false)}
-          >
-            <div className="contents">
-              {data.map((el, index) => {
-                return (
-                  <Card
-                    key={index}
-                    color={el.color}
-                    icon={el.icon}
-                    title={el.title}
-                    subtitle={el.subtitle}
-                  >
-                    <Button content={el.buttonContent} />
-                  </Card>
-                );
-              })}
+          <Carousel>
+            {data.map((el, index) => {
+              return (
+                <Card
+                  key={index}
+                  color={el.color}
+                  icon={el.icon}
+                  title={el.title}
+                  subtitle={el.subtitle}
+                >
+                  <Button typeButton="text" content={el.buttonContent} />
+                </Card>
+              );
+            })}
+          </Carousel>
+        </section>
+        <section className="awards">
+          <div className="content">
+            <div className="title">
+              <h2>Premiações</h2>
+              <hr></hr>
             </div>
+            <p>
+              In eu justo eu lectus tristique efficitur. Nunc malesuada sagittis
+              mauris ut sodales. Etiam vulputate nibh sit amet libero finibus
+              egestas. Proin malesuada volutpat gravida. Nullam quis dolor eget
+              nisi tincidunt mattis. Mauris risus magna, rutrum et lacus vel,
+              interdum aliquam odio. Nunc laoreet tincidunt tortor, vitae
+              posuere purus. Proin porttitor mi a libero scelerisque hendrerit.
+              Aliquam consequat turpis justo, non porttitor quam consectetur sit
+              amet. Proin at facilisis sem. Nunc eros metus, faucibus vitae
+              fringilla facilisis, auctor vel elit.
+            </p>
+            <Button typeButton="text" content="Entrar em contato" />
+          </div>
+          <div className="gallery">
+            <Icon />
+            <Icon />
+            <Icon />
+            <Icon />
+            <Icon />
+            <Icon />
+            <Icon />
+            <Icon />
+            <Icon />
           </div>
         </section>
-        {/* <section className="awards">
-          <div class="content">
-            <h2>Premiações</h2>
-            <hr></hr>
-            <p>
-              Mauris dictum dictum pulvinar. Etiam non rutrum ligula, sit amet
-              porttitor massa. Nullam nec erat eu ex tincidunt fermentum. Etiam
-              quis nunc eget quam mollis rhoncus. Pellentesque eu tristique
-              massa. Ut eget elementum mi, ut tristique metus. Suspendisse
-              auctor blandit molestie.
-            </p>
-            <Button content="Entrar em contato" />
-          </div>
-          <div class="gallery"></div>
-        </section> */}
       </main>
     </S.Container>
   );

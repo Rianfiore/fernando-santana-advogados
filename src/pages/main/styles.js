@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { bg1, mask } from "../../img";
+import { bg1 } from "../../img";
 
 export const Container = styled.div`
   main {
@@ -58,7 +58,7 @@ export const Container = styled.div`
         .mainIcon {
           img {
             width: 20%;
-            opacity: 75%;
+            opacity: 50%;
           }
         }
 
@@ -67,7 +67,7 @@ export const Container = styled.div`
           text-align: justify;
           text-align-last: center;
           align-self: center;
-          color: #fbd35e;
+          color: #fbce33;
           width: 95%;
         }
       }
@@ -79,48 +79,61 @@ export const Container = styled.div`
     }
     .specialties {
       background-color: #0f1115;
-      display: flex;
-      justify-items: flex-start;
-      justify-content: center;
+      margin: 0 auto;
     }
-    .viewport {
-      display: flex;
-      justify-content: center;
-      overflow: hidden;
-      width: 85%;
-      position: relative;
-      top: -10vw;
-      mask: url(${mask}) no-repeat center;
-      mask-size: 90% 100%;
 
-      .contents {
-        position: relative;
-        display: flex;
-        justify-content: space-evenly;
-        animation: slideOn 20s ease-in-out infinite;
-        animation-play-state: ${(props) =>
-          props.hoverAnimation ? "paused" : "running"};
-      }
-      cursor: pointer;
-
-      @keyframes slideOn {
-        0% {
-          left: -100%;
-        }
-        50% {
-          left: 100%;
-        }
-        100% {
-          left: -100%;
-        }
-      }
-    }
     .awards {
       background-color: #d9e0e8;
       display: flex;
-      justify-items: flex-start;
       justify-content: center;
-      height: 50vw;
+      height: 45vw;
+
+      .content {
+        background-color: #1f1f29;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3vw;
+        padding: 5%;
+        color: white;
+
+        .title {
+          display: flex;
+          flex-direction: column;
+          gap: 1vw;
+          h2 {
+            font-size: 2.5vw;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-family: "Rubik", sans-serif;
+          }
+          hr {
+            border: 0.1px solid #fbce33;
+          }
+        }
+
+        p {
+          text-align: justify;
+          text-align-last: left;
+          font-size: 1.5vw;
+          font-family: "Rubik", sans-serif;
+        }
+      }
+
+      .gallery {
+        background-color: #d9e0e8;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20%;
+        padding: 5%;
+      }
     }
   }
 `;
