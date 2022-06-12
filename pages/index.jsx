@@ -1,4 +1,4 @@
-import * as S from "./styles";
+import * as S from "../styles";
 import { Carousel, Button, Card, Icon } from "../components";
 import { specialties } from "../data/specialties";
 import ExportedImage from "next-image-export-optimizer";
@@ -13,7 +13,7 @@ export default function Home() {
             <figure className="mainIcon">
               <div className="img">
                 <ExportedImage
-                  src="icons/libra.svg"
+                  src="./icons/libra.svg"
                   alt="Balança da justiça"
                   layout="responsive"
                   width={"100%"}
@@ -27,7 +27,7 @@ export default function Home() {
               <figure className="prismIcon">
                 <div className="img">
                   <ExportedImage
-                    src="icons/prism.svg"
+                    src="./icons/prism.svg"
                     alt="Separador de texto"
                     layout="responsive"
                     width={"100%"}
@@ -40,7 +40,7 @@ export default function Home() {
               <figure className="prismIcon">
                 <div className="img">
                   <ExportedImage
-                    src="icons/prism.svg"
+                    src="./icons/prism.svg"
                     alt="Separador de texto"
                     layout="responsive"
                     width={"100%"}

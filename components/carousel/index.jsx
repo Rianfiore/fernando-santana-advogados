@@ -14,8 +14,6 @@ function Carousel({ children }) {
       value = contentsWidth / contentsLength,
       contentsLimit = contentsWidth / 2 - value / 2 - value;
 
-    console.log(buttonLeftEl);
-
     switch (direction) {
       case "left":
         carouselValue < contentsLimit - value

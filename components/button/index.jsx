@@ -17,13 +17,17 @@ function Button({ typeButton, content, direction, arrowColor }) {
     case "text":
       return (
         <S.Container>
-          <button className="textButton">{content}</button>
+          <button className="textButton" aria-label="Acessar">
+            {content}
+          </button>
         </S.Container>
       );
     case "slider":
       return (
         <S.Container>
-          <button className="sliderButton">{arrow()}</button>
+          <button className="sliderButton" aria-label="Próximo">
+            {arrow()}
+          </button>
         </S.Container>
       );
     default:
