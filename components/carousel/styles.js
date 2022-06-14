@@ -33,7 +33,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     overflow: hidden;
-    width: 63%;
+    width: ${(props) => (props.cards % 2 == 0 ? "100%" : "63%")};
     position: relative;
     top: -10vw;
 

@@ -1,8 +1,8 @@
 import * as S from "./styles";
-import { Button } from "../../components";
+import { Button } from "/components";
 import { useRef, useState } from "react";
 
-function Carousel({ children }) {
+function Carousel({ children, length }) {
   const [carouselValue, setCarouselValue] = useState(0),
     contentsEl = useRef(null),
     buttonLeftEl = useRef(null),
@@ -10,10 +10,11 @@ function Carousel({ children }) {
 
   function calculateWidthCarousel(direction) {
     const contentsWidth = contentsEl.current.clientWidth,
-      contentsLength = contentsEl.current.children.length,
+      contentsLength = length,
       value = contentsWidth / contentsLength,
-      contentsLimit = contentsWidth / 2 - value / 2 - value;
-
+      limitCorrection =
+        contentsLength % 2 === 0 ? value * 2 : value + value / 2,
+      contentsLimit = contentsWidth / 2 - limitCorrection;
     switch (direction) {
       case "left":
         carouselValue < contentsLimit - value
@@ -44,7 +45,7 @@ function Carousel({ children }) {
   }
 
   return (
-    <S.Container directionAnimation={carouselValue}>
+    <S.Container directionAnimation={carouselValue} cards={length}>
       <span
         className="button"
         onClick={() => calculateWidthCarousel("left")}

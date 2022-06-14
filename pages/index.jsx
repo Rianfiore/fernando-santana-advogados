@@ -1,9 +1,16 @@
 import * as S from "../styles";
 import { Carousel, Button, Card, Icon } from "../components";
-import { specialties } from "../data/specialties";
+import specialties from "/data/Specialties";
 import ExportedImage from "next-image-export-optimizer";
+import { useRouter } from "next/router";
+import ptBR from "/locales/pt-BR";
+import enUS from "/locales/en-US";
 
 export default function Home() {
+  const router = useRouter(),
+    { locale } = router,
+    t = locale === "pt-BR" ? ptBR : enUS,
+    translate = t.body.main.home;
   return (
     <S.Container>
       <main>
@@ -23,7 +30,7 @@ export default function Home() {
               </div>
             </figure>
             <div className="title">
-              <h1>Experiência</h1>
+              <h1>{translate.main.title1}</h1>
               <figure className="prismIcon">
                 <div className="img">
                   <ExportedImage
@@ -36,7 +43,7 @@ export default function Home() {
                   />
                 </div>
               </figure>
-              <h1>Confiança</h1>
+              <h1>{translate.main.title2}</h1>
               <figure className="prismIcon">
                 <div className="img">
                   <ExportedImage
@@ -49,20 +56,15 @@ export default function Home() {
                   />
                 </div>
               </figure>
-              <h1>Resultado</h1>
+              <h1>{translate.main.title3}</h1>
             </div>
-            <p className="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              ultrices erat vitae turpis semper consectetur. Quisque accumsan
-              lorem non metus imperdiet, ut pretium urna lobortis. Mauris
-              elementum nulla id metus maximus, vitae convallis sapien rhoncus.
-            </p>
+            <p className="subtitle">{translate.main.subtitle}</p>
           </div>
-          <Button typeButton="text" content="Entrar em contato" />
+          <Button typeButton="text" content={translate.main.button} />
         </section>
         <section className="specialties">
-          <Carousel>
-            {specialties.map((el, index) => {
+          <Carousel length={specialties().length}>
+            {specialties().map((el, index) => {
               return (
                 <Card
                   key={index}
@@ -80,21 +82,11 @@ export default function Home() {
         <section className="awards">
           <div className="content">
             <div className="title">
-              <h2>Premiações</h2>
+              <h2>{translate.awards.title}</h2>
               <hr></hr>
             </div>
-            <p>
-              In eu justo eu lectus tristique efficitur. Nunc malesuada sagittis
-              mauris ut sodales. Etiam vulputate nibh sit amet libero finibus
-              egestas. Proin malesuada volutpat gravida. Nullam quis dolor eget
-              nisi tincidunt mattis. Mauris risus magna, rutrum et lacus vel,
-              interdum aliquam odio. Nunc laoreet tincidunt tortor, vitae
-              posuere purus. Proin porttitor mi a libero scelerisque hendrerit.
-              Aliquam consequat turpis justo, non porttitor quam consectetur sit
-              amet. Proin at facilisis sem. Nunc eros metus, faucibus vitae
-              fringilla facilisis, auctor vel elit.
-            </p>
-            <Button typeButton="text" content="Entrar em contato" />
+            <p>{translate.awards.subtitle}</p>
+            <Button typeButton="text" content={translate.awards.button} />
           </div>
           <div className="gallery">
             <Icon />
