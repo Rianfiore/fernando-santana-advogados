@@ -4,7 +4,7 @@ import footer from "./footer";
 
 const body = {
   nav: navBar,
-  main: pages,
+  pages: pages,
   footer: footer,
 };
 

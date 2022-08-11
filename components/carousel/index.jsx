@@ -15,6 +15,7 @@ function Carousel({ children, length }) {
       limitCorrection =
         contentsLength % 2 === 0 ? value * 2 : value + value / 2,
       contentsLimit = contentsWidth / 2 - limitCorrection;
+
     switch (direction) {
       case "left":
         carouselValue < contentsLimit - value
@@ -27,7 +28,6 @@ function Carousel({ children, length }) {
           : handleButtonStatus(-contentsLimit, true);
         break;
       default:
-        console.error("Erro: prop 'direction' não definida.");
         break;
     }
   }

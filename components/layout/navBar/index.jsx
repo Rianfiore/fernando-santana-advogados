@@ -1,16 +1,16 @@
 import { useState } from "react";
 import * as S from "./styles";
-import { useRouter } from "next/router";
-import ptBR from "/locales/pt-BR";
-import enUS from "/locales/en-US";
 import SelectLanguage from "/components/selectLanguage";
+import { useLang } from "/context/useLanguage";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { paths } from "/locales";
 
 function NavBar() {
-  const [headerTransparent, setHeaderTransparent] = useState(true),
-    router = useRouter(),
-    { locale } = router,
-    t = locale === "pt-BR" ? ptBR : enUS,
-    translate = t.body.nav;
+  const [headerTransparent, setHeaderTransparent] = useState(true);
+  const router = useRouter();
+  let translate = useLang().initialLanguage.body.nav;
+  let locale = useLang().initialLanguage.locale;
 
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", () => {
@@ -26,16 +26,23 @@ function NavBar() {
     <S.Container headerTransparent={headerTransparent}>
       <header>
         <div className="content">
-          <ul className="left-menu">
-            <li>Fernando</li>
+          <div className="left-menu">
             <SelectLanguage />
-          </ul>
+          </div>
           <nav>
             <ul className="right-menu">
-              <li>{translate.li1}</li>
-              <li>{translate.li2}</li>
-              <li>{translate.li3}</li>
-              <li>{translate.li4}</li>
+              <Link href={`${locale}${paths.home}`}>
+                <li>{translate.li1}</li>
+              </Link>
+              <Link href={`${locale}${paths.aboutUs}`}>
+                <li>{translate.li2}</li>
+              </Link>
+              <Link href={`${locale}${paths.squad}`}>
+                <li>{translate.li3}</li>
+              </Link>
+              <Link href={`${locale}${paths.contact}`}>
+                <li>{translate.li4}</li>
+              </Link>
             </ul>
           </nav>
         </div>

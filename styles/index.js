@@ -21,7 +21,7 @@ export const Container = styled.div`
         width: 100%;
         height: 100vw;
         z-index: -1;
-        background: url("images/bg1.jpg") no-repeat center;
+        background: url("/bg1.jpg") no-repeat center;
         background-size: cover;
         filter: brightness(15%);
         box-shadow: 0 0 200px rgba(0, 0, 0, 0.9) inset,

@@ -1,25 +1,62 @@
-import Router, { useRouter } from "next/router";
+import { useLang } from "/context/useLanguage";
+import Link from "next/link";
+import { locales } from "/locales";
 import * as S from "./styles";
-import ptBR from "/locales/pt-BR";
-import enUS from "/locales/en-US";
-import { MdLanguage } from "react-icons/md";
-import { BiDownArrow } from "react-icons/bi";
+import { BsGlobe } from "react-icons/bs";
+import { useState, useRef } from "react";
+import { useRouter } from "next/router";
 
 function SelectLanguage() {
-  const router = useRouter(),
-    { locale } = router,
-    t = locale === "pt-BR" ? ptBR : enUS,
-    translate = t.body.nav,
-    changeLanguage = (e) => {
-      const locale = e.target.value;
-      Router.push("/", "/", { locale });
-    };
+  const { initialLanguage, changeLanguage } = useLang();
+  const [dropdown, setDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+  const [ptBR, enUS] = locales;
+  const router = useRouter();
+
+  const handleDropdownMenu = () => {
+    setDropdown(!dropdown);
+    dropdown
+      ? (dropdownRef.current.id = "dropdown-close")
+      : (dropdownRef.current.id = "dropdown-open");
+  };
+
+  const handleChangeLanguage = (language) => {
+    changeLanguage(language.langCode);
+    handleDropdownMenu();
+  };
+
   return (
     <S.Container>
-      <select onChange={changeLanguage} defaultValue={locale}>
-        <option value="pt-BR">{translate.ptBR}</option>
-        <option value="en-US">{translate.enUS}</option>
-      </select>
+      <div className="dropdown">
+        <button onClick={() => handleDropdownMenu()}>
+          <BsGlobe />
+          {initialLanguage.language}
+        </button>
+        <ul className="dropdown" ref={dropdownRef}>
+          <Link
+            href={`/[locales]${router.basePath}`}
+            as={`${ptBR.locale + router.basePath}`}
+          >
+            <a
+              className="dropdown-item"
+              onClick={() => handleChangeLanguage(ptBR)}
+            >
+              {ptBR.language}
+            </a>
+          </Link>
+          <Link
+            href={`/[locales]${router.basePath}`}
+            as={`${enUS.locale + router.basePath}`}
+          >
+            <a
+              className="dropdown-item"
+              onClick={() => handleChangeLanguage(enUS)}
+            >
+              {enUS.language}
+            </a>
+          </Link>
+        </ul>
+      </div>
     </S.Container>
   );
 }

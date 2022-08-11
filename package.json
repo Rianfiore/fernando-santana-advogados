@@ -10,7 +10,6 @@
     "export": "next build && next export && next-image-export-optimizer"
   },
   "dependencies": {
-    "i18next": "^21.8.9",
     "next": "12.1.6",
     "next-image-export-optimizer": "^0.10.1",
     "next-images": "^1.8.4",

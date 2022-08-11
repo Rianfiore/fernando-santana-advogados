@@ -6,23 +6,14 @@ import {
 } from "react-icons/md";
 import { FaHandshake, FaChess, FaChalkboardTeacher } from "react-icons/fa";
 import { IoIosBusiness } from "react-icons/io";
-import {
-  RiFileSearchFill,
-  RiBankFill,
-  RiShieldUserFill,
-  RiPoliceCarFill,
-} from "react-icons/ri";
+import { RiFileSearchFill, RiBankFill, RiShieldUserFill } from "react-icons/ri";
 import { HiCurrencyDollar } from "react-icons/hi";
+import { GiPistolGun } from "react-icons/gi";
 
-import { useRouter } from "next/router";
-import ptBR from "/locales/pt-BR";
-import enUS from "/locales/en-US";
+import { useLang } from "/context/useLanguage";
 
 export default function Specialties() {
-  const router = useRouter(),
-    { locale } = router,
-    t = locale === "pt-BR" ? ptBR : enUS,
-    translate = t.body.main.home.specialties;
+  const translate = useLang().initialLanguage.body.pages.home.specialties;
 
   return [
     {
@@ -97,7 +88,7 @@ export default function Specialties() {
     },
     {
       color: "primary",
-      icon: <RiPoliceCarFill size="5vw" color="#fbce33" />,
+      icon: <GiPistolGun size="5vw" color="#fbce33" />,
       title: translate.criminalLaw.title,
       subtitle: translate.criminalLaw.description,
       buttonContent: translate.cardButton,

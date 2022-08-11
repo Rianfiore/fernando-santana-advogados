@@ -1,6 +1,8 @@
+import { useLang } from "/context/useLanguage";
 import * as S from "./styles";
 
 function Footer() {
+  let translate = useLang().initialLanguage.body.footer;
   return (
     <S.Container>
       <footer>
@@ -11,10 +13,10 @@ function Footer() {
           </ul>
           <nav>
             <ul className="right-menu">
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>YouTube</li>
-              <li>WhatsApp</li>
+              <li>{translate.li1}</li>
+              <li>{translate.li2}</li>
+              <li>{translate.li3}</li>
+              <li>{translate.li4}</li>
             </ul>
           </nav>
         </div>
